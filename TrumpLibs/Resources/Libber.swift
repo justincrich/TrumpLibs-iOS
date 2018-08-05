@@ -8,22 +8,6 @@
 
 import Foundation
 
-struct LibberOption{
-    let word:String
-    let tag:NSLinguisticTag
-    let resultIndex:Int
-}
-
-extension Array {
-    
-    subscript (randomPick n: Int) -> [Element] {
-        var copy = self
-        for i in stride(from: count - 1, to: count - n - 1, by: -1) {
-            copy.swapAt(i, Int(arc4random_uniform(UInt32(i + 1))))
-        }
-        return Array(copy.suffix(n))
-    }
-}
 
 class Libber:NSLinguisticTagger{
     
@@ -37,6 +21,8 @@ class Libber:NSLinguisticTagger{
             }
         }
     }
+    
+    private let excludedWords = ["and","http","https","the","are","that","of","in","from","out","now"]
     
     init(){
         super.init(tagSchemes: [.tokenType,.nameTypeOrLexicalClass,.language,.nameType], options: 0)
@@ -64,30 +50,39 @@ class Libber:NSLinguisticTagger{
     func partsOfSpeech(for tweet:Tweet) -> Tweet {
         self.string = tweet.text
         
-        let options: NSLinguisticTagger.Options = [.joinNames,.omitWhitespace]
+        let options: NSLinguisticTagger.Options = [.joinNames]
         let range = NSRange(location:0, length:tweet.text.utf16.count)
         let tags: [NSLinguisticTag] = [.personalName, .placeName, .organizationName, .noun, .idiom, .verb]
-        var tweetWordArray: [String] = []
-        var selectedPartsOfSpeech: [LibberOption] = []
+        var tweetWordArray: [Word] = []
        
         self.enumerateTags(in: range, unit: .word, scheme: .nameTypeOrLexicalClass, options: options) { tag, tokenRange, _ in
-            let word = (tweet.text as NSString).substring(with: tokenRange)
-            if let tag = tag, tags.contains(tag), word.count > 4{
-                
-                selectedPartsOfSpeech.append(LibberOption( word: word, tag: tag, resultIndex: tweetWordArray.count))
 
+            let wordText = (tweet.text as NSString).substring(with: tokenRange)
+
+            var word = Word( text: wordText, alternateTextField: nil, tag: nil, resultIndex: tweetWordArray.count)
+            
+            if let tag = tag, tags.contains(tag), !excludedWords.contains(wordText.lowercased()),wordText.count > 4{
+                word.tag = tag
+                word.alternateTextField = RoundedTextField(formatPlaceholder(word.tag?.rawValue ?? ""))
             }
+            
             tweetWordArray.append(word)
         }
         var outputTweet = tweet
-        let fieldsToBePicked = selectedPartsOfSpeech.count > 4 ? 4 : selectedPartsOfSpeech.count
-        outputTweet.textPartsOfSpeech = selectedPartsOfSpeech[randomPick:fieldsToBePicked]
-        outputTweet.textWordsArray = tweetWordArray
+        
+        outputTweet.wordArray = tweetWordArray
         return outputTweet
     }
     
-    func tokenizeText(for text:String){
-        
+    private func formatPlaceholder(_ unformattedText: String)->String{
+        switch(unformattedText){
+        case "PersonalName":
+            return "Person"
+        case "PlaceName":
+            return "Place"
+        default:
+            return unformattedText
+        }
     }
     
 }

@@ -1,0 +1,6 @@
+framework module Pods_TrumpLibs {
+  umbrella header "Pods-TrumpLibs-umbrella.h"
+
+  export *
+  module * { export * }
+}

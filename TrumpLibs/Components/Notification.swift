@@ -22,7 +22,7 @@ class Notification
     lazy var label: UILabel = {
         var label = UILabel()
         label.text = "Test"
-        label.translatesAutoresizingMaskIntoConstraints = false;
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.font = UIFont.preferredFont(forTextStyle: .callout)
         label.textAlignment = .center
@@ -44,7 +44,7 @@ class Notification
     private func didLoad(){
         
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        self.backgroundColor = UIColor.white.withAlphaComponent(0.7)
         self.widthAnchor.constraint(equalToConstant: 350).isActive = true
         self.heightAnchor.constraint(equalToConstant: 75).isActive = true
         self.layer.cornerRadius = 15

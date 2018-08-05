@@ -19,11 +19,10 @@ class WelcomeController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let menu = MenuController()
-        navigationController?.pushViewController(menu, animated: false)
         view.backgroundColor = .background
         Button.backgroundColor = .accent
         Button.setTitleColor(.fontLight, for: .normal)
+        Button.layer.cornerRadius = 15
         subtitle.textColor = .fontLight
         header.textColor = .fontLight
     }

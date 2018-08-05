@@ -46,7 +46,7 @@ class MenuController: UIViewController {
     
     lazy var classicButton: BigButton = {
         let button = BigButton(label: "Classic Trump", color: .twitterBlue)
-        button.addTarget(self, action: #selector(MenuController.goClassicTrump), for: .touchUpInside)
+        button.addTarget(self, action:#selector(MenuController.goClassicTrump), for: .touchUpInside)
         return button
     }()
     
@@ -65,6 +65,7 @@ class MenuController: UIViewController {
 
     init(){
         super.init(nibName:nil,bundle:nil)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -75,18 +76,6 @@ class MenuController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .background
         
-        
-        
-        if let tweet = getTweet(){
-            let mlcontroller = MadLibFormController()
-            mlcontroller.selectedTweet = tweet
-            navigationController?.pushViewController(mlcontroller, animated: false)
-        }else{
-            //TODO - Handle case w no tweet
-            print("No Tweet")
-        }
-        
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -127,37 +116,51 @@ class MenuController: UIViewController {
     }
     
     @objc func goClassicTrump(){
-        print("Classic Trump")
+        loadTweet(for: .classic)
     }
+
     
     @objc func goPresidentialTrump(){
-        print("presidential trump")
+        loadTweet(for: .presidential)
     }
     
     @objc func broTrump(){
-        print("go bro")
+        loadTweet(for: .bro)
     }
     
-    func getTweet() -> Tweet? {
-        let loader = TweetLoader()
-        var tweets = loader.retrieveTweets()
-        let libber = Libber()
-        //FIXME: Handle No Tweet Case
-        
-        
-        while tweets.count > 0 {
-            var (tweetIndex, selectedTweet) = libber.randomTweet(from: tweets)
-            print(tweetIndex)
-            
-            if let pos = selectedTweet.textPartsOfSpeech, pos.count > 0 {
-                return selectedTweet
+    private func loadTweet(for type:TweetType){
+        TweetLoader().retrieveTweets(of: type).done{
+            tweets in
+            //print(type(of: tweets))
+            if var tweets = tweets as? [Tweet]{
+                let libber = Libber()
+                var tweet:Tweet?
+                while tweets.count > 0 {
+
+                    let (tweetIndex, selectedTweet) = libber.randomTweet(from: tweets)
+
+                    if let pos = selectedTweet.wordArray, pos.count > 0 {
+                        tweet = selectedTweet
+                        break
+                    }
+
+                    tweets.remove(at: tweetIndex)
+                }
+                if let tweet = tweet {
+                    let mlcontroller = MadLibFormController(with:tweet)
+                    self.navigationController?.pushViewController(mlcontroller, animated: false)
+                }else{
+                    //TODO - Send Message when not avaliable
+                    print("no tweets avaliable")
+                }
             }
-            
-            tweets.remove(at: tweetIndex)
+        }.catch{
+            error in
+            //TODO - handle error states for fetching tweets
+            print(error)
         }
-        
-        return nil
     }
+
     
 
 
