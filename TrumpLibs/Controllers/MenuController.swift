@@ -22,6 +22,21 @@ class MenuController: UIViewController {
     
 
     // MARK: - User Interface Properties
+    lazy var spinner: UIView = {
+       let spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.color = .twitterBlue
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        container.backgroundColor = UIColor(white:1, alpha:0.9)
+        container.addSubview(spinner)
+        container.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        container.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        container.layer.cornerRadius = 25
+        spinner.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
+        spinner.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
+        return container
+    }()
     
     lazy var headline:UILabel = {
         let label = UILabel()
@@ -93,15 +108,14 @@ class MenuController: UIViewController {
         buttonContainer.distribution = .fill
         buttonContainer.translatesAutoresizingMaskIntoConstraints = false
         
-
-        
-      
+        self.spinner.isHidden = true
         
         view.addSubview(backgroundImg)
         view.addSubview(headline)
         view.addSubview(buttonContainer)
+        view.addSubview(spinner)
         
-
+        
         //Body Constraints
         NSLayoutConstraint.activate([
             headline.centerXAnchor.constraint(equalTo:view.centerXAnchor),
@@ -111,7 +125,9 @@ class MenuController: UIViewController {
             backgroundImg.widthAnchor.constraint(equalToConstant: 300),
            buttonContainer.widthAnchor.constraint(equalToConstant: 350),
            buttonContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-           buttonContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+           buttonContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+           spinner.centerXAnchor.constraint(equalTo:view.centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
     
@@ -129,6 +145,18 @@ class MenuController: UIViewController {
     }
     
     private func loadTweet(for type:TweetType){
+        
+//        if let view = self.viewIfLoaded {
+//            view.addSubview(spinner)
+////            spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+////            spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//
+//        }
+        
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        let loadingSpinner = self.spinner.subviews[0] as? UIActivityIndicatorView
+        loadingSpinner?.startAnimating()
+        self.spinner.isHidden = false
         TweetLoader().retrieveTweets(of: type).done{
             tweets in
             //print(type(of: tweets))
@@ -147,6 +175,8 @@ class MenuController: UIViewController {
                     tweets.remove(at: tweetIndex)
                 }
                 if let tweet = tweet {
+                    loadingSpinner?.stopAnimating()
+                    self.spinner.isHidden = true
                     let mlcontroller = MadLibFormController(with:tweet)
                     self.navigationController?.pushViewController(mlcontroller, animated: false)
                 }else{
@@ -158,6 +188,9 @@ class MenuController: UIViewController {
             error in
             //TODO - handle error states for fetching tweets
             print(error)
+        }.finally {
+            loadingSpinner?.stopAnimating()
+            self.spinner.isHidden = true
         }
     }
 

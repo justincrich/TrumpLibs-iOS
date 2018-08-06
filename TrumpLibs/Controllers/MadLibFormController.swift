@@ -135,10 +135,11 @@ class MadLibFormController: UIViewController {
         NSLayoutConstraint.activate([
             
             
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
+            titleLabel.topAnchor.constraint(greaterThanOrEqualTo: view.topAnchor, constant: 40),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            form.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             form.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            form.topAnchor.constraint(equalTo: titleLabel.bottomAnchor,constant: 20),
+            form.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             backgroundImg.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             submitButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
             submitButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
@@ -153,8 +154,6 @@ class MadLibFormController: UIViewController {
         var uncompletedFields:[UIView] = []
 
         do{
-            
-            //TODO - perform form validation check
             
             uncompletedFields = form.subviews.filter(){
                 field in
@@ -192,44 +191,5 @@ class MadLibFormController: UIViewController {
         }
     }
     
-//    private func generateForm(){
-//       /*
-//
-//         self.attributedPlaceholder = NSAttributedString(
-//         string:placeholder,
-//         attributes:[NSAttributedStringKey.foregroundColor:UIColor.fontLight]
-//         )
-//
-//         let field = RoundedTextField(placeholder:placeholderText)
-//         field.widthAnchor.constraint(equalToConstant:300).isActive = true
-//         return field
-// */
-//        guard let wordArray = self.selectedTweet?.wordArray else {
-//            return
-//        }
-//
-//        var fieldedWords: [Word] = []
-//
-//        for var word in wordArray {
-//            if let tag = word.tag {
-//
-//
-//                word.alternateTextField = field
-//
-//            }
-//            fieldedWords.append(word)
-//        }
-//
-//        let totalFieldsAllowed = fieldedWords.count > 4 ? 4: fieldedWords.count
-//        fields = fieldedWords[randomPick:totalFieldsAllowed]
-//
-//        let form = UIStackView(arrangedSubviews: fields)
-//        form.spacing = 30
-//        form.translatesAutoresizingMaskIntoConstraints = false
-//        form.axis = .vertical
-//        form.alignment = .center
-//
-//        return form
-//    }
 }
 

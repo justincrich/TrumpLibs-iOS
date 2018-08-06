@@ -20,11 +20,19 @@ class DisplayTweetController: UIViewController {
         return label
     }()
     
+    lazy var shareTweetButton: BigButton = {
+        let button = BigButton(label:"Share", color:.secondaryAccent)
+        button.addTarget(self, action: #selector(DisplayTweetController.shareTweet), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        //button.widthAnchor.constraint(greaterThanOrEqualToConstant:300).isActive = true
+        return button
+    }()
+    
     lazy var newTweetButton: BigButton = {
-        let button = BigButton(label: "Lib a new Tweet", color: .secondaryAccent)
+        let button = BigButton(label: "New Tweet", color: .accent)
         button.addTarget(self, action: #selector(DisplayTweetController.startNewTweet), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.widthAnchor.constraint(greaterThanOrEqualToConstant:300).isActive = true
+        //button.widthAnchor.constraint(greaterThanOrEqualToConstant:300).isActive = true
         return button
     }()
     
@@ -60,7 +68,13 @@ class DisplayTweetController: UIViewController {
         super.viewDidLayoutSubviews()
         view.addSubview(titleLabel)
         view.addSubview(tweetCard)
-        view.addSubview(newTweetButton)
+        let buttonContainer = UIStackView()
+        buttonContainer.translatesAutoresizingMaskIntoConstraints = false
+        buttonContainer.addArrangedSubview(shareTweetButton)
+        buttonContainer.addArrangedSubview(newTweetButton)
+        buttonContainer.spacing = 10
+        view.addSubview(buttonContainer)
+        
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
@@ -70,17 +84,32 @@ class DisplayTweetController: UIViewController {
             tweetCard.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             tweetCard.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             tweetCard.widthAnchor.constraint(lessThanOrEqualToConstant: 650),
-            newTweetButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            newTweetButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30)
+            buttonContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            buttonContainer.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30),
+            buttonContainer.widthAnchor.constraint(equalToConstant: 300),
+            shareTweetButton.widthAnchor.constraint(equalTo: newTweetButton.widthAnchor),
+            
         ])
-        
         
     }
     
     //MARK - UI Interactions
     
     @objc func startNewTweet(){
-        //TODO - pop back to menu
+        for controller in self.navigationController!.viewControllers as Array {
+            if controller.isKind(of: MenuController.self) {
+                _ =  self.navigationController!.popToViewController(controller, animated: false)
+                break
+            }
+        }
+    }
+    
+    @objc func shareTweet(){
+        let sharableImage = tweetCard.generateImage()
+        let activityView = UIActivityViewController(activityItems: [sharableImage], applicationActivities: [])
+        activityView.popoverPresentationController?.sourceView = self.view
+        present(activityView, animated: true)
+        //TODO - Add success/failure notification
     }
     
 

@@ -35,6 +35,7 @@ class BigButton: UIButton {
         self.backgroundColor = colorStyle
         self.layer.cornerRadius = 10
         self.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

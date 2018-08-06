@@ -11,7 +11,7 @@
 		D0029A81210A4E700047C90E /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0029A80210A4E700047C90E /* Title.swift */; };
 		D0029A83210B6DA40047C90E /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0029A82210B6DA40047C90E /* Word.swift */; };
 		D0029A87210BA9670047C90E /* Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0029A86210BA9670047C90E /* Body.swift */; };
-		D05A152F2114142F007092F4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D05A152E2114142F007092F4 /* GoogleService-Info.plist */; };
+		D06597652117664C00C0A113 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D06597642117664C00C0A113 /* GoogleService-Info.plist */; };
 		D07890A62100557900725FB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07890A52100557900725FB4 /* AppDelegate.swift */; };
 		D07890A82100557900725FB4 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07890A72100557900725FB4 /* WelcomeController.swift */; };
 		D07890AB2100557900725FB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D07890A92100557900725FB4 /* Main.storyboard */; };
@@ -32,6 +32,7 @@
 		D07890E22101135D00725FB4 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07890E12101135D00725FB4 /* MenuController.swift */; };
 		D07890E521011CBA00725FB4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07890E421011CBA00725FB4 /* Colors.swift */; };
 		D07890E8210139BB00725FB4 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07890E7210139BB00725FB4 /* Fonts.swift */; };
+		D0798CA221169414009BCD64 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D0798CA121169414009BCD64 /* .gitignore */; };
 		D09E7B6F2101470300D6F69E /* BigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E7B6E2101470300D6F69E /* BigButton.swift */; };
 		D09E7B722101818300D6F69E /* MadLibFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E7B712101818300D6F69E /* MadLibFormController.swift */; };
 		D09E7B9221024AF300D6F69E /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E7B9121024AF300D6F69E /* Tweet.swift */; };
@@ -44,7 +45,6 @@
 		D09E7BA42108FB6400D6F69E /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E7BA32108FB6400D6F69E /* Messages.swift */; };
 		D09E7BA6210931F500D6F69E /* DisplayTweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E7BA5210931F500D6F69E /* DisplayTweetController.swift */; };
 		D09E7BA821094C5600D6F69E /* TweetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E7BA721094C5600D6F69E /* TweetCard.swift */; };
-		D0F94FF52114FC7F00EFD741 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F94FF42114FC7F00EFD741 /* FirebaseCore.framework */; };
 		D0F94FF72114FC8500EFD741 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F94FF62114FC8500EFD741 /* PromiseKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +55,7 @@
 		D0029A82210B6DA40047C90E /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		D0029A86210BA9670047C90E /* Body.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Body.swift; sourceTree = "<group>"; };
 		D035FA2921141FC500E1EBF8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = Pods/GoogleToolboxForMac/README.md; sourceTree = "<group>"; };
-		D05A152E2114142F007092F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D06597642117664C00C0A113 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D07890A22100557900725FB4 /* TrumpLibs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrumpLibs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D07890A52100557900725FB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D07890A72100557900725FB4 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
@@ -78,6 +78,7 @@
 		D07890E12101135D00725FB4 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		D07890E421011CBA00725FB4 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		D07890E7210139BB00725FB4 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		D0798CA121169414009BCD64 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		D09E7B6E2101470300D6F69E /* BigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButton.swift; sourceTree = "<group>"; };
 		D09E7B712101818300D6F69E /* MadLibFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadLibFormController.swift; sourceTree = "<group>"; };
 		D09E7B9121024AF300D6F69E /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
@@ -101,7 +102,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0F94FF72114FC8500EFD741 /* PromiseKit.framework in Frameworks */,
-				D0F94FF52114FC7F00EFD741 /* FirebaseCore.framework in Frameworks */,
 				5840E8F8867EB7A77E4A6DAB /* Pods_TrumpLibs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,11 +158,12 @@
 				D07890C8210061E400725FB4 /* fonts */,
 				D07890B721005C9E00725FB4 /* Controllers */,
 				D07890A52100557900725FB4 /* AppDelegate.swift */,
+				D0798CA121169414009BCD64 /* .gitignore */,
 				D07890A92100557900725FB4 /* Main.storyboard */,
 				D07890AC2100557A00725FB4 /* Assets.xcassets */,
 				D07890AE2100557A00725FB4 /* LaunchScreen.storyboard */,
+				D06597642117664C00C0A113 /* GoogleService-Info.plist */,
 				D07890B12100557A00725FB4 /* Info.plist */,
-				D05A152E2114142F007092F4 /* GoogleService-Info.plist */,
 				D09E7B9921028C3300D6F69E /* twitterVariables.plist */,
 			);
 			path = TrumpLibs;
@@ -260,6 +261,7 @@
 				D078909F2100557900725FB4 /* Frameworks */,
 				D07890A02100557900725FB4 /* Resources */,
 				99D3DA74A68CDE778CBA7D5F /* [CP] Embed Pods Frameworks */,
+				D06597662118D62100C0A113 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -322,7 +324,8 @@
 				D07890DD210061F900725FB4 /* Roboto-BoldItalic.ttf in Resources */,
 				D07890D6210061F900725FB4 /* Roboto-Italic.ttf in Resources */,
 				D07890D8210061F900725FB4 /* Roboto-MediumItalic.ttf in Resources */,
-				D05A152F2114142F007092F4 /* GoogleService-Info.plist in Resources */,
+				D06597652117664C00C0A113 /* GoogleService-Info.plist in Resources */,
+				D0798CA221169414009BCD64 /* .gitignore in Resources */,
 				D09E7B9721025D4900D6F69E /* data.json in Resources */,
 				D07890D5210061F900725FB4 /* Roboto-Bold.ttf in Resources */,
 				D07890DE210061F900725FB4 /* Roboto-Regular.ttf in Resources */,
@@ -360,16 +363,39 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TrumpLibs/Pods-TrumpLibs-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrumpLibs/Pods-TrumpLibs-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		D06597662118D62100C0A113 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -543,6 +569,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 37KW26GSN4;
 				INFOPLIST_FILE = TrumpLibs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -563,6 +590,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 37KW26GSN4;
 				INFOPLIST_FILE = TrumpLibs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

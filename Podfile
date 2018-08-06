@@ -7,4 +7,9 @@ target 'TrumpLibs' do
 
   # Pods for TrumpLibs
   pod 'PromiseKit/CorePromise'
+  pod 'Firebase/Core'
+  pod 'Firebase/Performance'
+  pod 'Fabric', '~> 1.7.9'
+  pod 'Crashlytics', '~> 3.10.5'
+
 end

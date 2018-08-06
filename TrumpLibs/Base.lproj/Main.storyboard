@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Avc-Xg-hkp">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,34 +15,17 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="WelcomeController" customModule="TrumpLibs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TrumpLibs" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yz1-db-wPm">
-                                <rect key="frame" x="19.5" y="50" width="281.5" height="70"/>
+                                <rect key="frame" x="47" y="50" width="281.5" height="70"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bird-trump" translatesAutoresizingMaskIntoConstraints="NO" id="Zpf-LK-ffg">
-                                <rect key="frame" x="79" y="136" width="162" height="162"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="162" id="N6r-pr-CSx"/>
-                                    <constraint firstAttribute="height" constant="162" id="g3X-tH-Y3j"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Can you tweet crazier than the president?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFD-u4-0D7">
-                                <rect key="frame" x="22" y="306" width="276" height="98"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="98" id="N4Y-P2-zDy"/>
-                                    <constraint firstAttribute="width" constant="276" id="m1D-59-0uO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCc-kF-Gl1">
-                                <rect key="frame" x="2.5" y="490" width="315" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCc-kF-Gl1">
+                                <rect key="frame" x="30" y="589" width="315" height="58"/>
                                 <color key="backgroundColor" red="0.92156862750000001" green="0.63529411759999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="315" id="28M-08-ERZ"/>
@@ -54,19 +37,42 @@
                                     <action selector="onPressPlay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gJz-q2-6m9"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cue-mb-myd">
+                                <rect key="frame" x="49.5" y="213.5" width="276" height="260"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bird-trump" translatesAutoresizingMaskIntoConstraints="NO" id="Zpf-LK-ffg">
+                                        <rect key="frame" x="57" y="0.0" width="162" height="162"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="162" id="N6r-pr-CSx"/>
+                                            <constraint firstAttribute="height" constant="162" id="g3X-tH-Y3j"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Can you tweet crazier than the president?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFD-u4-0D7">
+                                        <rect key="frame" x="0.0" y="162" width="276" height="98"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="98" id="N4Y-P2-zDy"/>
+                                            <constraint firstAttribute="width" constant="276" id="m1D-59-0uO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="276" id="Se0-bY-ko3"/>
+                                    <constraint firstAttribute="height" constant="260" id="tTT-DZ-ZXn"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.50980392159999999" green="0.72941176470000002" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Yz1-db-wPm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="2tm-Ut-eHt"/>
-                            <constraint firstItem="RFD-u4-0D7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="6lq-GU-diq"/>
-                            <constraint firstItem="RFD-u4-0D7" firstAttribute="top" secondItem="Zpf-LK-ffg" secondAttribute="bottom" constant="8" id="BES-XL-Hf3"/>
                             <constraint firstItem="wCc-kF-Gl1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Do4-Uv-uQT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wCc-kF-Gl1" secondAttribute="bottom" constant="20" id="KQo-Fm-42Z"/>
                             <constraint firstItem="Yz1-db-wPm" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="S5c-De-Ysx"/>
-                            <constraint firstItem="wCc-kF-Gl1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="RFD-u4-0D7" secondAttribute="bottom" constant="10" id="UQb-SM-kUV"/>
-                            <constraint firstItem="Zpf-LK-ffg" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qYm-HT-DQa"/>
-                            <constraint firstItem="Zpf-LK-ffg" firstAttribute="top" secondItem="Yz1-db-wPm" secondAttribute="bottom" constant="16" id="vTu-fD-blr"/>
+                            <constraint firstItem="cue-mb-myd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="juy-ws-1Ux"/>
+                            <constraint firstItem="cue-mb-myd" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="yEc-sw-Ero"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

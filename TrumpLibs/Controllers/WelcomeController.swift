@@ -25,6 +25,10 @@ class WelcomeController: UIViewController {
         Button.layer.cornerRadius = 15
         subtitle.textColor = .fontLight
         header.textColor = .fontLight
+        
+//        let v = DisplayTweetController(for: Tweet(id: 1, createdAt: Date(), text: "Hi", userId: 1, retweetCount: 1, favoriteCount: 1, wordArray: []))
+//        navigationController?.pushViewController(v, animated: true)
+        
     }
 
     override func didReceiveMemoryWarning() {

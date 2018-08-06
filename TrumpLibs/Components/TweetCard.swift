@@ -20,6 +20,7 @@ class TweetCard: UIView {
     lazy var profileImage: UIImageView = {
         var image = #imageLiteral(resourceName: "profile_image")
         var imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
         imageView.image = image
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
@@ -157,6 +158,38 @@ class TweetCard: UIView {
             output.append(attributedString)
         }
         return output
+        
+    }
+    
+    func generateImage() -> UIImage?{
+
+        let dimensions = CGRect(x: 0, y: 0, width: self.bounds.width+10, height: self.bounds.height+10)
+        
+        let exportedView = UIView()
+        exportedView.translatesAutoresizingMaskIntoConstraints = false
+        exportedView.backgroundColor = .background
+        
+        let exportedCard = TweetCard(for: self.tweet)
+        exportedCard.seeOriginalButton.isHidden = true
+        
+        exportedView.addSubview(exportedCard)
+
+        exportedCard.leadingAnchor.constraint(equalTo: exportedView.leadingAnchor, constant: 5).isActive = true
+        exportedCard.trailingAnchor.constraint(equalTo: exportedView.trailingAnchor, constant: -5).isActive = true
+        exportedCard.topAnchor.constraint(equalTo: exportedView.topAnchor, constant: 5).isActive = true
+        exportedCard.bottomAnchor.constraint(equalTo: exportedView.bottomAnchor, constant: -5).isActive = true
+        
+        exportedView.widthAnchor.constraint(equalToConstant: dimensions.width).isActive = true
+        exportedView.heightAnchor.constraint(equalToConstant: dimensions.height).isActive = true
+        
+        let renderer = UIGraphicsImageRenderer(bounds: dimensions )
+        let image = renderer.image{
+            ctx in
+            
+            exportedView.drawHierarchy(in: dimensions, afterScreenUpdates: true)
+        }
+        
+        return image
         
     }
     
